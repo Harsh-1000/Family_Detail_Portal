@@ -1,0 +1,17 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header{
+    display: flex;
+}
+
+header ul li
+{
+    list-style: none;
+}
+
+header ul{
+    dis
+}

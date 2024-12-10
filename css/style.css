@@ -6,17 +6,23 @@
 body{
     width: 100%;
     height: 100vh;
-    /* background-color: aquamarine; */
     background-color: black;
     color: #ccc;
-    display: grid;
-    place-items: center;
+    /* display: grid;
+    place-items: center; */
+}
+
+header{
+  width: 100%;
+  background-color: yellow;
+  display: flex;
 }
 
 main{
-    width: 340px;
-    /* background-color: yellow; */
+    width: 100%;
+    background-color: #04AA6D;
 }
+
 
 .main-body
 {
@@ -32,7 +38,7 @@ input, select{
     border: 1px solid #ccc;
 }   
 
-button {
+#submit-btn {
     background-color: #04AA6D;
     color: white;
     padding: 14px 20px;
@@ -93,6 +99,12 @@ table {
   }
 
   #show-detail
+  {
+    display: none;
+  }
+
+  /* add new memeber form */
+  .add-members
   {
     display: none;
   }

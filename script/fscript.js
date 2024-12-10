@@ -33,6 +33,9 @@ form.addEventListener('submit',function(evet)
     user.family.push(member);
     localStorage.setItem(user.email,JSON.stringify(user));
     showMemeber(formData.get('fname') +' '+formData.get('lname'),formData.get('relation'),formData.get('age'));
+
+    document.getElementById('add-member').style.display='none';
+    form.reset();
 })
 
 function showMemeber(name,relation,age)
@@ -94,4 +97,20 @@ function getMemberDetail(rowIndex)
     document.getElementById('blood-group').innerHTML=user.family.at(familyIndex).bg;
     document.getElementById('marital-status').innerHTML=user.family.at(familyIndex).maritalStatus;
     document.getElementById('gender').innerHTML=user.family.at(familyIndex).gender;
+}
+
+function logout()
+{
+    localStorage.removeItem('login');
+    window.location.href = './index.html';
+}
+
+function addMember()
+{
+    document.getElementById('add-member').style.display='block';
+}
+
+function close()
+{
+    document.getElementById('add-member').style.display='none';
 }
