@@ -75,6 +75,7 @@ function showMemeberDetail()
         row.addEventListener("mouseover", () => {
             showDetail.style.display = 'block';
             console.log(`Row index: ${row.rowIndex}`);
+            getMemberDetail(row.rowIndex);
         });
         row.addEventListener("mouseout", () => {
             showDetail.style.display = 'none';
@@ -82,7 +83,15 @@ function showMemeberDetail()
     });
 }
 
-function getMemberDetail()
+function getMemberDetail(rowIndex)
 {
-
+    let familyIndex = user.family.length-rowIndex; 
+    document.getElementById('fname').innerHTML=user.family.at(familyIndex).firstName;
+    document.getElementById('lname').innerHTML=user.family.at(familyIndex).lastName;
+    document.getElementById('dob').innerHTML=user.family.at(familyIndex).dob;
+    document.getElementById('age').innerHTML=user.family.at(familyIndex).age;
+    document.getElementById('relation').innerHTML=user.family.at(familyIndex).relation;
+    document.getElementById('blood-group').innerHTML=user.family.at(familyIndex).bg;
+    document.getElementById('marital-status').innerHTML=user.family.at(familyIndex).maritalStatus;
+    document.getElementById('gender').innerHTML=user.family.at(familyIndex).gender;
 }
