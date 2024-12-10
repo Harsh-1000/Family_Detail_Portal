@@ -9,19 +9,6 @@ function Family(firstName,lastName,dob,age,relation,bg,maritalStatus,gender){
     this.gender=gender;   
 }
 
-// function User(firstName,lastName,age,email){
-//     this.firstName = firstName,
-//     this.lastName = lastName,
-//     this.age = age,
-//     this.email = email;
-//     this.family = [];
-// }
-
-// User.prototype.addMember = function (member){
-//     this.family.push(member);
-// }
-
-
 const loginEmail = localStorage.getItem('login');
 const user = JSON.parse(localStorage.getItem(loginEmail))
 console.log(user);
@@ -45,11 +32,57 @@ form.addEventListener('submit',function(evet)
 
     user.family.push(member);
     localStorage.setItem(user.email,JSON.stringify(user));
+    showMemeber(formData.get('fname') +' '+formData.get('lname'),formData.get('relation'),formData.get('age'));
 })
 
-function showAllMemebers()
+function showMemeber(name,relation,age)
 {
-    let table = document.getElementById('family-member');
+    let table = document.getElementById('table-body');
     let row = table.insertRow(0);
+    row.classList.add('table-tr');
+    let cell_name = row.insertCell(0);
+    let cell_relation = row.insertCell(1);
+    let cell_age = row.insertCell(2);
+
+    cell_name.innerHTML = name;
+    cell_relation.innerHTML = relation;
+    cell_age.innerHTML = age;
+
+    showMemeberDetail();
+}
+
+window.addEventListener('load',function()
+{
+    let familyMembers = user.family;
     
+    for(let member of familyMembers)
+    {
+        showMemeber(member.firstName + ' ' + member.lastName,
+            member.relation,member.age)
+    }
+
+    showMemeberDetail();
+})
+
+
+function showMemeberDetail()
+{
+    const tableRows = document.querySelectorAll("tbody tr");
+
+    const showDetail = document.getElementById('show-detail');
+
+    tableRows.forEach(row => {
+        row.addEventListener("mouseover", () => {
+            showDetail.style.display = 'block';
+            console.log(`Row index: ${row.rowIndex}`);
+        });
+        row.addEventListener("mouseout", () => {
+            showDetail.style.display = 'none';
+        });
+    });
+}
+
+function getMemberDetail()
+{
+
 }

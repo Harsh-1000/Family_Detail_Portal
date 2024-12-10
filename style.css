@@ -91,3 +91,8 @@ table {
     background-color:  lightslategray;
     color: orange
   }
+
+  #show-detail
+  {
+    display: none;
+  }

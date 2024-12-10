@@ -9,7 +9,6 @@ function User(firstName,lastName,age,email){
     
 }
 
-
 form.addEventListener('submit', function(event) {
     const formData = new FormData(form); 
     const user = new User(formData.get('fname'),formData.get('lname'),formData.get('age'),formData.get('email'));
