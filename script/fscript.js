@@ -9,6 +9,8 @@ function Family(firstName,lastName,dob,age,relation,bg,maritalStatus,gender){
     this.gender=gender;   
 }
 
+var isFormOpen = false;
+
 const loginEmail = localStorage.getItem('login');
 const user = JSON.parse(localStorage.getItem(loginEmail))
 console.log(user);
@@ -78,10 +80,15 @@ function showMemeberDetail()
         row.addEventListener("mouseover", () => {
             showDetail.style.display = 'block';
             console.log(`Row index: ${row.rowIndex}`);
+            document.getElementById('add-member').style.display='none';
             getMemberDetail(row.rowIndex);
         });
         row.addEventListener("mouseout", () => {
             showDetail.style.display = 'none';
+            if(isFormOpen)
+            {
+                document.getElementById('add-member').style.display='block';
+            }
         });
     });
 }
@@ -108,6 +115,7 @@ function logout()
 function addMember()
 {
     document.getElementById('add-member').style.display='block';
+    isFormOpen=true;
 }
 
 function close()

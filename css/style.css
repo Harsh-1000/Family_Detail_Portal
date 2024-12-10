@@ -149,11 +149,23 @@ input, select{
     width: 100%;
     display: grid;
     place-items: center;
-    margin-top: 20px;
+    /* margin-top: 20px; */
+    min-height: 76vh;
     /* background-color: yellow; */
+    /* background-color: violet; */
 }
 
-#login-form{width: 24%;}
+.form-container
+{
+  display: grid;
+  place-items: center;
+  /* background-color: yellow; */
+}
+
+#login-form{
+  max-width: 26%;
+  /* margin:0px 20px 20px 20px; */
+}
 
 #login-btn{width: 100%;}
 
@@ -165,4 +177,38 @@ footer{
     display: grid;
     place-items: center;
     border-top: 1px solid white;
+}
+
+@media (max-width: 800px)
+{
+  #login-form{
+    max-width: 80%;
+  }
+
+  header
+  {
+    display: flex;
+    flex-direction: column;
+  }
+
+  button{
+    width: 100%;
+  }
+
+  header ul
+  {
+    display: block;
+  }
+
+  .main-family
+  {
+    display: block;
+  }
+
+  .family
+  {
+    display: grid;
+    place-items:center ;
+    /* background-color: yellow; */
+  }
 }
