@@ -5,12 +5,10 @@
     list-style-type: none;
 }
 
-body
-{
+body{
     width: 100%;
     background-color: #000000;
     color: #F5F5F5;
-
 }
 
 header {
@@ -34,7 +32,6 @@ ul{
 
 .logo {width: 50px;}
 
-
 button {
     background-color: #04AA6D;
     color: white;
@@ -42,7 +39,6 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    /* width: 100%; */
 }
 
 /* main section */
@@ -51,40 +47,27 @@ main
     width: 100%;
     min-height: 75vh;
     background-color: #000000;
-    /* display: grid;
-    place-items: center; */
 }
 
-.main-family
-{
+.main-family{
     width: 98%;
     margin: 16px;
-    /* background-color: yellow; */
     display: flex;
     gap: 20px;
 }
 
-.show-members
-{
-    flex-basis: 55%;
-    /* background-color: aqua; */
-}
+.show-members{flex-basis: 55%;}
 
-.family
-{
-    flex-basis: 45%;
-    /* background-color: violet; */
-    display: grid;
-    place-items: center;
-}
+.family{flex-basis: 45%;}
+
 #show-detail
 {
   display: none;
-  width: 80%;
+  width: 50%;
+  position: fixed;
 }
 
 /* Table Section  */
-
 h2{
     margin-bottom: 20px;
 }
@@ -113,8 +96,7 @@ table {
     
   }
 
-  tr:nth-child(even)
-  {
+  tr:nth-child(even) {
     background-color: lightslategray;
   }
  
@@ -133,20 +115,17 @@ table {
 
 /* add new member section*/
 
-.add-members
-{
+.add-members{
     width: 80%;
-    /* background-color: #3004aa; */
-    display: none;
+    display: none; 
+}
+
+form {
     border: 3px solid #f1f1f1;
     padding: 14px;
 }
-form {}
 
-label
-{
-    font-size: 20px;
-}
+label{ font-size: 20px;}
 
 input, select{
     width: 100%;
@@ -155,8 +134,7 @@ input, select{
     border: 1px solid #ccc;
  } 
 
- .member-btn
- {
+ .member-btn{
     width: 100%;
     display: flex;
     align-items: center;
@@ -164,13 +142,26 @@ input, select{
     gap: 16%;
  }
 
-/* Footer section */
+/* login page CSS */
 
+.login-section
+{
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin-top: 20px;
+    /* background-color: yellow; */
+}
+
+#login-form{width: 24%;}
+
+#login-btn{width: 100%;}
+
+/* Footer section */
 footer{
     background-color: #000000;
     color: #F5F5F5;
     padding: 20px;
-    
     display: grid;
     place-items: center;
     border-top: 1px solid white;

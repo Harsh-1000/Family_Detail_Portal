@@ -4,28 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Family Detail Portal</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/fstyle.css">
 </head>
 <body>
+    <header>
+        <ul>
+           <a href="#"><img src="./img/familyLogo-removebg-preview.png" alt="logo" class="logo"></a> 
+        </ul>
+    </header>
     <main>
-        <form action="./family.html" id="login-form">
-            <div class="login-detail">
-                <label for="fname"><b>First Name</b></label>
-                <input type="text" id="fname" name="fname" placeholder="First Name">
-        
-                <label for="lname"><b>Family Name</b></label>
-                <input type="text" name="lname" id="lname" placeholder="Last Name">
+        <section class="login-section">
+            <h2>Login</h2>
+            <form action="./family.html" id="login-form">
+                <div class="login-detail">
+                    <label for="fname"><b>First Name</b></label>
+                    <input type="text" id="fname" name="fname" placeholder="First Name">
             
-                <label for="age"><b>Age</b></label>
-                <input type="number" name="age" id="age" placeholder="Age">
+                    <label for="lname"><b>Family Name</b></label>
+                    <input type="text" name="lname" id="lname" placeholder="Last Name">
+                
+                    <label for="age"><b>Age</b></label>
+                    <input type="number" name="age" id="age" placeholder="Age">
+            
+                    <label for="email"><b>Email</b></label>
+                    <input type="email" name="email" id="email" placeholder="Email">
+            
+                    <button id="login-btn" type="submit">Login</button>
+                </div>
+            </form>     
+        </section>
         
-                <label for="email"><b>Email</b></label>
-                <input type="email" name="email" id="email" placeholder="Email">
-        
-                <button id="submit-btn" type="submit">Login</button>
-            </div>
-        </form>     
     </main>
+    <footer>
+        <p>Made with &#10084;&#65039; by Harsh &nbsp;</p>
+    </footer>
 </body>
 <script src="./script/script.js"></script>
 </html>
