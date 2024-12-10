@@ -89,8 +89,8 @@ function showMemeberDetail()
 function getMemberDetail(rowIndex)
 {
     let familyIndex = user.family.length-rowIndex; 
-    document.getElementById('fname').innerHTML=user.family.at(familyIndex).firstName;
-    document.getElementById('lname').innerHTML=user.family.at(familyIndex).lastName;
+    document.getElementById('first-name').innerHTML=user.family.at(familyIndex).firstName;
+    document.getElementById('family-name').innerHTML=user.family.at(familyIndex).lastName;
     document.getElementById('dob').innerHTML=user.family.at(familyIndex).dob;
     document.getElementById('age').innerHTML=user.family.at(familyIndex).age;
     document.getElementById('relation').innerHTML=user.family.at(familyIndex).relation;

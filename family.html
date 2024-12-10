@@ -19,122 +19,130 @@
             <li>Age: <span id="user-age">25</span></li>
             <li>Email: <span id="user-email">luffy@gmail.com</span></li>
         </ul>
-        
+    
         <ul>
             <li><button onclick="addMember()">Add Member</button></li>
             <li><button onclick="logout()">Logout</button></li>
            
         </ul>
     </header>
-    <main class="main-body">
-
-        <div class="show-members">
-            <div class="data-table">
-                <Caption><h2>Family Details</h2></Caption>
-                <table id="family-member">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Relationship</th>
-                            <th>Age</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table-body">                     
-                    </tbody>
-                </table>
+    <main>
+        <section class="main-family">
+            <div class="show-members">
+                <div class="data-table">
+                    <Caption><h2>Family Details</h2></Caption>
+                    <table id="family-member">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Relationship</th>
+                                <th>Age</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">                     
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-
-        <div class="family">
-            <div id="show-detail">
-                <p>
-                    <label for="fname"><b>First Name :</b></label>  
-                    <span id="fname"></span> 
-                </p>
-                 
-                <p>
-                    <label for="lname"><b>Family Name : </b></label>      
-                    <span id="lname"></span>
-                </p>
-                 
-                <p>
-                    <label for="dob"><b>Date of Birth</b></label>               
-                    <span id="dob"></span>
-                </p>
-                  
-                <p>
-                    <label for="age"><b>Age</b></label>         
-                    <span id="age"></span> 
-                </p>
-                 
-                <p>
-                    <label for="relation"><b>Relation</b></label>      
-                    <span id="relation"></span> 
-                </p>
-                 
-                <p>
-                    <label for="blood-group"><b>Blood Group</b></label>       
-                    <span id="blood-group"></span>
-                </p>
-                  
-                <p>
-                    <label for="marital-status"><b>Marital Status</b></label>
-                    <span id="marital-status"></span>
-                </p>
-                  
-                <p>
-                    <label for="gender"><b>Gender</b></label>           
-                    <span id="gender"></span>  
-                </p>
-               
-            </div>
-            <div class="add-members" id="add-member">
-                <form id="family-form">
-                    <div class="family-detail">
-                        <label for="fname"><b>First Name</b></label>
-                        <input type="text" id="fname" name="fname" placeholder="First Name">
-                
-                        <label for="lname"><b>Family Name</b></label>
-                        <input type="text" name="lname" id="lname" placeholder="Last Name">
     
-                        <label for="dob"><b>Date of Birth</b></label>
-                        <input type="date" name="dob" id="dob">
+            <div class="family">
+                <div id="show-detail">
+                    <Caption><h2>Member Details</h2></Caption>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>First Name</td>
+                                <td id="first-name"></td>
+                            </tr>
+                            <tr>
+                                <td>Family Name</td>
+                                <td id="family-name"></td>
+                            </tr>
+                            <tr>
+                                <td>Date of Birth</td>
+                                <td id="dob"></td>
+                            </tr>
+                            <tr>
+                                <td>Age</td>
+                                <td id="age"></td>
+                            </tr>
+                            <tr>
+                                <td>Relation</td>
+                                <td id="relation"></td>
+                            </tr>
+                            <tr>
+                                <td>Blood Group</td>
+                                <td id="blood-group"></td>
+                            </tr>
+                            <tr>
+                                <td>Marital Status</td>
+                                <td id="marital-status"></td>
+                            </tr>
+                            <tr>
+                                <td>Gender</td>
+                                <td id="gender"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="add-members" id="add-member">
+                    <form id="family-form">
+                        <div class="family-detail">
+                            <label for="fname"><b>First Name</b></label>
+                            <input type="text" id="fname" name="fname" placeholder="First Name">
                     
-                        <label for="age"><b>Age</b></label>
-                        <input type="number" name="age" id="age" placeholder="Age">
-                
-                        <label for="relation"><b>Relation</b></label>
-                        <input type="text" name="relation" id="relation" placeholder="Relation">
-    
-                        <label for="blood-group"><b>Blood Group</b></label>
-                        <input type="text" name="bloodGroup" id="blood-group" placeholder="Blood Group">
-    
-                        <label for="marital-status"><b>Marital Status</b></label>
-                        <select name="maritalStatus" id="marital-status">
-                            <option value="" >--Select--</option>
-                            <option value="married">Married</option>
-                            <option value="unmarried">Unmarried</option>
-                            <option value="divorced">Divorced</option>
-                        </select>
-    
-                        <label for="gender"><b>Gender</b></label>
-                        <input list="genders" name="gender" id="gender" placeholder="Gender">
-                        <datalist id="genders">
-                            <option value="Male">
-                            <option value="Female">
-                            <option value="Transgender">
-                        </datalist>
-    
-                        <button id="submit-btn" type="submit">Add</button>
-                        <button onclick="close()">Close</button>
-                    </div>
-                </form>
+                            <label for="lname"><b>Family Name</b></label>
+                            <input type="text" name="lname" id="lname" placeholder="Last Name">
+        
+                            <label for="dob"><b>Date of Birth</b></label>
+                            <input type="date" name="dob" id="dob">
+                        
+                            <label for="age"><b>Age</b></label>
+                            <input type="number" name="age" id="age" placeholder="Age">
+                    
+                            <label for="relation"><b>Relation</b></label>
+                            <input type="text" name="relation" id="relation" placeholder="Relation">
+        
+                            <label for="blood-group"><b>Blood Group</b></label>
+                            <input type="text" name="bloodGroup" id="blood-group" placeholder="Blood Group">
+        
+                            <label for="marital-status"><b>Marital Status</b></label>
+                            <select name="maritalStatus" id="marital-status">
+                                <option value="" >--Select--</option>
+                                <option value="married">Married</option>
+                                <option value="unmarried">Unmarried</option>
+                                <option value="divorced">Divorced</option>
+                            </select>
+        
+                            <label for="gender"><b>Gender</b></label>
+                            <input list="genders" name="gender" id="gender" placeholder="Gender">
+                            <datalist id="genders">
+                                <option value="Male">
+                                <option value="Female">
+                                <option value="Transgender">
+                            </datalist>
+        
+                            <div class="member-btn">
+                                <button id="submit-btn" type="submit">Add</button>
+                                <button onclick="close()">Close</button>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-      
+        </section>   
     </main>
+
     <footer>
-        Bye
+        <p>Made with &#10084;&#65039; by Harsh &nbsp;</p>
     </footer>
 </body>
 <script src="./script/fscript.js"></script>
