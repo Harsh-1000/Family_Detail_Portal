@@ -61,23 +61,26 @@ window.addEventListener('load',function()
 form.addEventListener('submit',function(evet){
     evet.preventDefault();
     const formData = new FormData(form);
-    const age = calculateAge(formData.get('dob'));
-    const member = new Family(formData.get('fname'),
-                              formData.get('lname'),
-                              formData.get('dob'),
-                              age,
-                              formData.get('relation'),
-                              formData.get('bloodGroup'),
-                              formData.get('maritalStatus'),
-                              formData.get('gender'));
+    if(validate(formData))
+    {
+        const age = calculateAge(formData.get('dob'));
+        const member = new Family(formData.get('fname'),
+                                formData.get('lname'),
+                                formData.get('dob'),
+                                age,
+                                formData.get('relation'),
+                                formData.get('bloodGroup'),
+                                formData.get('maritalStatus'),
+                                formData.get('gender'));
 
-    user.family.push(member);
-    localStorage.setItem(user.email,JSON.stringify(user));
-    addMemberToDisplyTable(formData.get('fname') +' '+formData.get('lname'),formData.get('relation'),age);
-    isFormOpen=true;
-    document.getElementById('fname').focus();
-    scrollUp();
-    form.reset();
+        user.family.push(member);
+        localStorage.setItem(user.email,JSON.stringify(user));
+        addMemberToDisplyTable(formData.get('fname') +' '+formData.get('lname'),formData.get('relation'),age);
+        isFormOpen=true;
+        document.getElementById('fname').focus();
+        scrollUp();
+        form.reset();
+    }
 })
 
 /**
@@ -215,4 +218,35 @@ function scrollUp()
         top: 0,
         behavior: 'smooth'
     });
+}
+
+/**
+ * 
+ * this function is use to validate the form data before saving
+ * 
+ * @param {*} formData 
+ * @returns {boolean} - true : if it is validate and false if not
+ */
+function validate(formData)
+{   
+    if(   formData.get('fname') === null 
+       || formData.get('fname') === ""
+       || formData.get('lname') === null
+       || formData.get('lname') === ""
+       || formData.get('dob') === null
+       || formData.get('dob') === ""
+       || formData.get('relation') === null
+       || formData.get('relation') === ""
+       || formData.get('bloodGroup') === null
+       || formData.get('bloodGroup') === ""
+       || formData.get('maritalStatus') === null
+       || formData.get('maritalStatus') === ""
+       || formData.get('gender') === null
+       || formData.get('gender') === ""
+    )
+    {
+        window.alert('please fill all the required filed');
+        return false;
+    }
+    return true;
 }

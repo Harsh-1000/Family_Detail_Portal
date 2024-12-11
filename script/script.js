@@ -27,12 +27,15 @@ function User(firstName,lastName,age,email){
  */
 form.addEventListener('submit', function(event) {
     const formData = new FormData(form); 
-    const user = new User(formData.get('fname'),formData.get('lname'),formData.get('age'),formData.get('email'));
-    console.log(user.firstName +"  "+user.lastName +"  " + user.age + "  " + user.email);
-    if(localStorage.getItem(user.email)===null){
-        localStorage.setItem(user.email,JSON.stringify(user));
+    if(formData(formData))
+    {
+        const user = new User(formData.get('fname'),formData.get('lname'),formData.get('age'),formData.get('email'));
+        console.log(user.firstName +"  "+user.lastName +"  " + user.age + "  " + user.email);
+        if(localStorage.getItem(user.email)===null){
+            localStorage.setItem(user.email,JSON.stringify(user));
+        }
+        localStorage.setItem("login",user.email);
     }
-    localStorage.setItem("login",user.email);
 })
 
 /***
@@ -64,3 +67,28 @@ function showUserLoginDetail(user){
     age.value = user.age;
 }
 
+
+/**
+ * 
+ * this function is use to validate the form data before saving
+ * 
+ * @param {*} formData 
+ * @returns {boolean} - true : if it is validate and false if not
+ */
+function validate(formData)
+{
+    if(   formData.get('fname') === null 
+       || formData.get('fname') === ""
+       || formData.get('lname') === null
+       || formData.get('lname') === ""
+       || formData.get('age') === null
+       || formData.get('age') === ""
+       || formData.get('email') === null
+       || formData.get('email') === ""
+    )
+    {
+        window.alert('please fill all the required filed');
+        return false;
+    }
+    return true;
+}
