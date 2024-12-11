@@ -26,15 +26,18 @@ function User(firstName,lastName,age,email){
  * login/signup form - create new user if not exists before login
  */
 form.addEventListener('submit', function(event) {
+    event.preventDefault();
     const formData = new FormData(form); 
     if(validate(formData))
-    {
+    {        
         const user = new User(formData.get('fname'),formData.get('lname'),formData.get('age'),formData.get('email'));
         console.log(user.firstName +"  "+user.lastName +"  " + user.age + "  " + user.email);
         if(localStorage.getItem(user.email)===null){
             localStorage.setItem(user.email,JSON.stringify(user));
         }
         localStorage.setItem("login",user.email);
+
+        window.location.href = './family.html';
     }
 })
 
@@ -77,11 +80,9 @@ function showUserLoginDetail(user){
  */
 function validate(formData)
 {
-    if(   formData.get('fname') === null 
-       || formData.get('fname') === ""
-       || formData.get('lname') === null
+    if( 
+          formData.get('fname') === ""
        || formData.get('lname') === ""
-       || formData.get('age') === null
        || formData.get('age') === ""
        || formData.get('email') === null
        || formData.get('email') === ""
