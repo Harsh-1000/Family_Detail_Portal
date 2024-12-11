@@ -76,6 +76,7 @@ form.addEventListener('submit',function(evet){
     addMemberToDisplyTable(formData.get('fname') +' '+formData.get('lname'),formData.get('relation'),age);
     isFormOpen=true;
     document.getElementById('fname').focus();
+    scrollUp();
     form.reset();
 })
 
@@ -86,6 +87,8 @@ document.getElementById('close-btn').addEventListener('click', function()
 {
     document.getElementById('add-member').style.display='none';
     document.getElementById('about-website').style.display='block';
+    form.reset();
+    scrollUp();
     isFormOpen=false;
 })
 
@@ -97,19 +100,20 @@ document.getElementById('close-btn').addEventListener('click', function()
  * @param {*} name 
  * @param {*} relation 
  * @param {*} age 
- * 
+ *   
  */
 function addMemberToDisplyTable(name,relation,age)
 {
     let table = document.getElementById('table-body');
     let row = table.insertRow(0);
     row.classList.add('table-tr');
-    let cell_name = row.insertCell(0);
-    let cell_relation = row.insertCell(1);
-    let cell_age = row.insertCell(2);
-    cell_name.innerHTML = name;
-    cell_relation.innerHTML = relation;
-    cell_age.innerHTML = age;
+    let cellName = row.insertCell(0);
+    let cellRelation = row.insertCell(1);
+    let cellAge = row.insertCell(2);
+
+    cellName.innerHTML = name;
+    cellRelation.innerHTML = relation;
+    cellAge.innerHTML = age;
     
     showMemeberDetail();
 }
@@ -138,7 +142,7 @@ function showMemeberDetail()
 {
         const tableRows = document.querySelectorAll("tbody tr");
         const showDetail = document.getElementById('show-detail');
-   
+
         tableRows.forEach(row => {
             row.addEventListener("mouseover", () => {
                 if(!isFormOpen){
@@ -166,6 +170,7 @@ function addMember()
     document.getElementById('add-member').style.display='block';
     document.getElementById('about-website').style.display='none';
     document.getElementById('fname').focus();
+    scrollUp();
     isFormOpen=true;
 }
 
@@ -201,3 +206,13 @@ function calculateAge(dob)
     return age;
 }
 
+/**
+ * function is used to scroll up the window
+ */
+function scrollUp()
+{
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
