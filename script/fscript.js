@@ -17,9 +17,7 @@ console.log(user);
 
 const form = document.getElementById('family-form');
 
-form.addEventListener('submit',function(evet)
-{
-
+form.addEventListener('submit',function(evet){
     evet.preventDefault();
     const formData = new FormData(form);
 
@@ -35,7 +33,6 @@ form.addEventListener('submit',function(evet)
     user.family.push(member);
     localStorage.setItem(user.email,JSON.stringify(user));
     showMemeber(formData.get('fname') +' '+formData.get('lname'),formData.get('relation'),formData.get('age'));
-
     document.getElementById('add-member').style.display='none';
     form.reset();
 })
@@ -52,7 +49,7 @@ function showMemeber(name,relation,age)
     cell_name.innerHTML = name;
     cell_relation.innerHTML = relation;
     cell_age.innerHTML = age;
-
+    
     showMemeberDetail();
 }
 
@@ -66,31 +63,42 @@ window.addEventListener('load',function()
             member.relation,member.age)
     }
 
+    showLoginUserDetail();
     showMemeberDetail();
 })
+
+function showLoginUserDetail(){
+    document.getElementById('user-name').innerHTML = user.firstName + ' ' + user.lastName;
+    document.getElementById('user-age').innerHTML = user.age;
+    document.getElementById('user-email').innerHTML = user.email;
+
+}
 
 
 function showMemeberDetail()
 {
-    const tableRows = document.querySelectorAll("tbody tr");
-
-    const showDetail = document.getElementById('show-detail');
-
-    tableRows.forEach(row => {
-        row.addEventListener("mouseover", () => {
-            showDetail.style.display = 'block';
-            console.log(`Row index: ${row.rowIndex}`);
-            document.getElementById('add-member').style.display='none';
-            getMemberDetail(row.rowIndex);
+        const tableRows = document.querySelectorAll("tbody tr");
+        const showDetail = document.getElementById('show-detail');
+    
+        tableRows.forEach(row => {
+           
+            row.addEventListener("mouseover", () => {
+                if(!isFormOpen){
+                    console.log(isFormOpen);        
+                    showDetail.style.display = 'block';
+                    console.log(`Row index: ${row.rowIndex}`);
+                    document.getElementById('about-website').style.display='none';
+                    getMemberDetail(row.rowIndex);
+                }
+            });
+            row.addEventListener("mouseout", () => {
+                if(!isFormOpen){
+                    showDetail.style.display = 'none';
+                    document.getElementById('about-website').style.display='block';
+                }
+            });
         });
-        row.addEventListener("mouseout", () => {
-            showDetail.style.display = 'none';
-            if(isFormOpen)
-            {
-                document.getElementById('add-member').style.display='block';
-            }
-        });
-    });
+   
 }
 
 function getMemberDetail(rowIndex)
@@ -115,10 +123,16 @@ function logout()
 function addMember()
 {
     document.getElementById('add-member').style.display='block';
+    document.getElementById('about-website').style.display='none';
     isFormOpen=true;
 }
 
-function close()
+document.getElementById('close-btn').addEventListener('click', function()
 {
     document.getElementById('add-member').style.display='none';
-}
+    document.getElementById('about-website').style.display='block';
+    isFormOpen=false;
+})
+
+
+

@@ -15,9 +15,9 @@
         </ul>
       
         <ul>
-            <li>Name: <span id="user-name">Luffy Dragon</span></li>
-            <li>Age: <span id="user-age">25</span></li>
-            <li>Email: <span id="user-email">luffy@gmail.com</span></li>
+            <li>Name: <span id="user-name"></span></li>
+            <li>Age: <span id="user-age"></span></li>
+            <li>Email: <span id="user-email"></span></li>
         </ul>
     
         <ul>
@@ -47,7 +47,7 @@
     
             <div class="family">
 
-                <div class="about">
+                <div class="about" id="about-website">
                     <h1>&#x1F3E0; Family Detail Portal &#x1F31F;</h1>
 
                     <p>Welcome to the <strong>Family Detail Portal</strong>, your one-stop solution for managing family member details with ease and clarity! Here's how it works:</p>
@@ -134,25 +134,25 @@
                     <form id="family-form">
                         <div class="family-detail">
                             <label for="fname"><b>First Name</b></label>
-                            <input type="text" id="fname" name="fname" placeholder="First Name">
+                            <input type="text" id="fname" name="fname" placeholder="First Name" required>
                     
                             <label for="lname"><b>Family Name</b></label>
-                            <input type="text" name="lname" id="lname" placeholder="Last Name">
+                            <input type="text" name="lname" id="lname" placeholder="Last Name" required>
         
                             <label for="dob"><b>Date of Birth</b></label>
-                            <input type="date" name="dob" id="dob">
+                            <input type="date" name="dob" id="dob" required>
                         
                             <label for="age"><b>Age</b></label>
-                            <input type="number" name="age" id="age" placeholder="Age">
+                            <input type="number" name="age" id="age" placeholder="Age" required>
                     
                             <label for="relation"><b>Relation</b></label>
-                            <input type="text" name="relation" id="relation" placeholder="Relation">
+                            <input type="text" name="relation" id="relation" placeholder="Relation" required>
         
                             <label for="blood-group"><b>Blood Group</b></label>
-                            <input type="text" name="bloodGroup" id="blood-group" placeholder="Blood Group">
+                            <input type="text" name="bloodGroup" id="blood-group" placeholder="Blood Group" required>
         
                             <label for="marital-status"><b>Marital Status</b></label>
-                            <select name="maritalStatus" id="marital-status">
+                            <select name="maritalStatus" id="marital-status" required>
                                 <option value="" >--Select--</option>
                                 <option value="married">Married</option>
                                 <option value="unmarried">Unmarried</option>
@@ -160,7 +160,7 @@
                             </select>
         
                             <label for="gender"><b>Gender</b></label>
-                            <input list="genders" name="gender" id="gender" placeholder="Gender">
+                            <input list="genders" name="gender" id="gender" placeholder="Gender" required>
                             <datalist id="genders">
                                 <option value="Male">
                                 <option value="Female">
@@ -169,11 +169,13 @@
         
                             <div class="member-btn">
                                 <button id="submit-btn" type="submit">Add</button>
-                                <button onclick="close()">Close</button>
+                                <button id="close-btn" type="button">Close</button>
                             </div>
+
                             
                         </div>
                     </form>
+                    
                 </div>
             </div>
         </section>   
