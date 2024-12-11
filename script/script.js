@@ -27,7 +27,7 @@ function User(firstName,lastName,age,email){
  */
 form.addEventListener('submit', function(event) {
     const formData = new FormData(form); 
-    if(formData(formData))
+    if(validate(formData))
     {
         const user = new User(formData.get('fname'),formData.get('lname'),formData.get('age'),formData.get('email'));
         console.log(user.firstName +"  "+user.lastName +"  " + user.age + "  " + user.email);
