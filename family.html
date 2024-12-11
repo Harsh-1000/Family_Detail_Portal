@@ -46,7 +46,6 @@
             </div>
     
             <div class="family">
-
                 <div class="about" id="about-website">
                     <h1>&#x1F3E0; Family Detail Portal &#x1F31F;</h1>
 
@@ -142,15 +141,22 @@
                             <label for="dob"><b>Date of Birth</b></label>
                             <input type="date" name="dob" id="dob" required>
                         
-                            <label for="age"><b>Age</b></label>
-                            <input type="number" name="age" id="age" placeholder="Age" required>
-                    
                             <label for="relation"><b>Relation</b></label>
                             <input type="text" name="relation" id="relation" placeholder="Relation" required>
         
                             <label for="blood-group"><b>Blood Group</b></label>
-                            <input type="text" name="bloodGroup" id="blood-group" placeholder="Blood Group" required>
-        
+                            <input list="blood-types" name="bloodGroup" id="blood-group" placeholder="Blood Group" required>
+                            <datalist id="blood-types">
+                                <option value="A +">
+                                <option value="A -">
+                                <option value="B +">
+                                <option value="B -">
+                                <option value="AB +">
+                                <option value="AB -">
+                                <option value="O +">
+                                <option value="O -">
+                            </datalist>
+
                             <label for="marital-status"><b>Marital Status</b></label>
                             <select name="maritalStatus" id="marital-status" required>
                                 <option value="" >--Select--</option>
@@ -170,9 +176,7 @@
                             <div class="member-btn">
                                 <button id="submit-btn" type="submit">Add</button>
                                 <button id="close-btn" type="button">Close</button>
-                            </div>
-
-                            
+                            </div>   
                         </div>
                     </form>
                     
