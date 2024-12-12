@@ -41,25 +41,30 @@ function Family(firstName,lastName,dob,age,relation,bg,maritalStatus,gender){
 }
 
 /**
- * window onLoad - it displays all family member in table format and login user detail
+ * window onLoad - it displays all family member in table format and login user detail and add event listner to the table row
  */
 window.addEventListener('load',function()
 {
     let familyMembers = user.family;
+    const tableRows = document.querySelectorAll("tbody tr");
     
     for(let member of familyMembers) {
         addMemberToDisplyTable(member.firstName + ' ' + member.lastName,
             member.relation,member.age)
     }
+    
+    tableRows.forEach(row => {
+        addEventListenerToMemberTableRow(row);
+    });
+
     showLoginUserDetail();
-    showMemeberDetail();
 })
 
 /**
  * form submit - it is use to get family memeber detail and store it in local storage
  */
-form.addEventListener('submit',function(evet){
-    evet.preventDefault();
+form.addEventListener('submit',function(event){
+    event.preventDefault();
     const formData = new FormData(form);
     if(validate(formData))
     {
@@ -139,18 +144,6 @@ function getMemberDetail(rowIndex)
 }
 
 /**
- * implement the hover functionality to show member detail on hover
- */
-function showMemeberDetail()
-{
-        const tableRows = document.querySelectorAll("tbody tr");
-    
-        tableRows.forEach(row => {
-            addEventListenerToMemberTableRow(row);
-        });
-}
-
-/**
  * add event listener to the row in the member table
  * @param {*} row 
  */
@@ -160,10 +153,8 @@ function addEventListenerToMemberTableRow(row)
     const showDetail = document.getElementById('show-detail');
 
     row.addEventListener("mouseover", () => {
-        if(!isFormOpen){
-            console.log(isFormOpen);        
+        if(!isFormOpen){  
             showDetail.style.display = 'block';
-            console.log(`Row index: ${row.rowIndex}`);
             document.getElementById('about-website').style.display='none';
             getMemberDetail(row.rowIndex);
         }
