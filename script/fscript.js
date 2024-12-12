@@ -46,16 +46,11 @@ function Family(firstName,lastName,dob,age,relation,bg,maritalStatus,gender){
 window.addEventListener('load',function()
 {
     let familyMembers = user.family;
-    const tableRows = document.querySelectorAll("tbody tr");
     
     for(let member of familyMembers) {
         addMemberToDisplyTable(member.firstName + ' ' + member.lastName,
             member.relation,member.age)
     }
-    
-    tableRows.forEach(row => {
-        addEventListenerToMemberTableRow(row);
-    });
 
     showLoginUserDetail();
 })
