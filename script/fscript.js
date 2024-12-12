@@ -118,7 +118,7 @@ function addMemberToDisplyTable(name,relation,age)
     cellRelation.innerHTML = relation;
     cellAge.innerHTML = age;
     
-    showMemeberDetail();
+    addEventListenerToMemberTableRow(row);
 }
 
 /**
@@ -144,25 +144,36 @@ function getMemberDetail(rowIndex)
 function showMemeberDetail()
 {
         const tableRows = document.querySelectorAll("tbody tr");
-        const showDetail = document.getElementById('show-detail');
-
+    
         tableRows.forEach(row => {
-            row.addEventListener("mouseover", () => {
-                if(!isFormOpen){
-                    console.log(isFormOpen);        
-                    showDetail.style.display = 'block';
-                    console.log(`Row index: ${row.rowIndex}`);
-                    document.getElementById('about-website').style.display='none';
-                    getMemberDetail(row.rowIndex);
-                }
-            });
-            row.addEventListener("mouseout", () => {
-                if(!isFormOpen){
-                    showDetail.style.display = 'none';
-                    document.getElementById('about-website').style.display='block';
-                }
-            });
+            addEventListenerToMemberTableRow(row);
         });
+}
+
+/**
+ * add event listener to the row in the member table
+ * @param {*} row 
+ */
+
+function addEventListenerToMemberTableRow(row)
+{
+    const showDetail = document.getElementById('show-detail');
+
+    row.addEventListener("mouseover", () => {
+        if(!isFormOpen){
+            console.log(isFormOpen);        
+            showDetail.style.display = 'block';
+            console.log(`Row index: ${row.rowIndex}`);
+            document.getElementById('about-website').style.display='none';
+            getMemberDetail(row.rowIndex);
+        }
+    });
+    row.addEventListener("mouseout", () => {
+        if(!isFormOpen){
+            showDetail.style.display = 'none';
+            document.getElementById('about-website').style.display='block';
+        }
+    });
 }
 
 /**
@@ -176,6 +187,7 @@ function addMember()
     scrollUp();
     isFormOpen=true;
 }
+
 
 /**
  * show login user details
